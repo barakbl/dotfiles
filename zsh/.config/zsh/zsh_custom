@@ -16,6 +16,8 @@ zmvlower_run() { zmv -Qv '(**/)(*)(.D)' '$1${(L)2}' }
 zmvnospaces() { zmv -n  '(**/)(* *)' '$1${2//( #-## #| ##)/-}' }
 zmvnospaces_run() { zmv  '(**/)(* *)' '$1${2//( #-## #| ##)/-}' }
 
+t() { tmux new-session -A -s "${1:-main}" }
+
 export FZF_CTRL_R_OPTS="--prompt 'History> ' --with-nth 2.."
 export PATH="$HOME/.local/bin:$PATH"
 eval "$(starship init zsh)"
