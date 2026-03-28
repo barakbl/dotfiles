@@ -10,6 +10,12 @@ alias h='history'
 alias gs='git status'
 
 
+autoload zmv
+zmvlower() { zmv -Qvn '(**/)(*)(.D)' '$1${(L)2}' }
+zmvlower_run() { zmv -Qv '(**/)(*)(.D)' '$1${(L)2}' }
+zmvnospaces() { zmv -n  '(**/)(* *)' '$1${2//( #-## #| ##)/-}' }
+zmvnospaces_run() { zmv  '(**/)(* *)' '$1${2//( #-## #| ##)/-}' }
+
 export FZF_CTRL_R_OPTS="--prompt 'History> ' --with-nth 2.."
 export PATH="$HOME/.local/bin:$PATH"
 eval "$(starship init zsh)"
