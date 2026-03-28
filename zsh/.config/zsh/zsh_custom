@@ -1,0 +1,16 @@
+alias ls='lsd'
+alias l='lsd -l'
+alias la='lsd -a'
+alias lla='lsd -la'
+alias lt='lsd --tree'
+
+alias top='btop'
+alias c='clear'
+alias h='history'
+alias gs='git status'
+
+
+export FZF_CTRL_R_OPTS="--prompt 'History> ' --with-nth 2.."
+export PATH="$HOME/.local/bin:$PATH"
+eval "$(starship init zsh)"
+source <(fzf --zsh)
