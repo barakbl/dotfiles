@@ -3,7 +3,7 @@
 set -e
 
 DOTFILES_DIR="$HOME/dotfiles"
-BREW_APPS=(docker lsd lazygit tmux btop git  fzf zsh starship stow)
+BREW_APPS=(docker zsh-autosuggestions zplug lsd lazygit tmux btop git  fzf zsh starship stow)
 
 echo "=============="
 echo "Dotfiles Setup"
@@ -14,7 +14,7 @@ echo
 function brew_inst() {
 	if ! command -v $1 &> /dev/null; then
 		echo "$1 is not installed. Installing..."
-		sudo brew install $1
+		brew install $1
 		echo "$1 installed successfully!"
 	else
 		echo "$1 installed already, skip"
