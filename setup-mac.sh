@@ -3,7 +3,7 @@
 set -e
 
 DOTFILES_DIR="$HOME/dotfiles"
-BREW_APPS=(docker lsd tmux btop git  fzf zsh starship stow)
+BREW_APPS=(docker lsd lazygit tmux btop git  fzf zsh starship stow)
 
 echo "=============="
 echo "Dotfiles Setup"
