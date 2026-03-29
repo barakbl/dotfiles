@@ -24,3 +24,4 @@ export FZF_CTRL_R_OPTS="--prompt 'History> ' --with-nth 2.."
 export PATH="$HOME/.local/bin:$PATH"
 eval "$(starship init zsh)"
 source <(fzf --zsh)
+nerdfetch
