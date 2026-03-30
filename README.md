@@ -108,6 +108,7 @@ Defined in `zsh/.config/zsh/zsh_custom`:
 | `t [name]` | Attach or create a tmux session (default: `main`) |
 | `tmux2html` | Capture current tmux pane with colors as HTML and copy to clipboard |
 | `coffee [time]` | Countdown timer with progress bar (e.g. `coffee 10m`, `coffee 30s`, default `5m`) |
+| `weather [location]` | Show current weather (e.g. `weather London`, default: Tel Aviv) |
 | `zmvlower` | Dry-run rename files to lowercase (recursive) |
 | `zmvlower_run` | Rename files to lowercase (recursive) |
 | `zmvnospaces` | Dry-run rename files replacing spaces with `-` |

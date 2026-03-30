@@ -21,6 +21,33 @@ zmvnospaces_run() { zmv  '(**/)(* *)' '$1${2//( #-## #| ##)/-}' }
 
 t() { tmux new-session -A -s "${1:-main}" }
 
+coffee() {
+  local input="${1:-5m}"
+  local total
+  case $input in
+    *m) total=$(( ${input%m} * 60 )) ;;
+    *s) total=${input%s} ;;
+    *)  echo "Usage: coffee [<n>s|<n>m]  (e.g. 10s, 5m)"; return 1 ;;
+  esac
+
+  local i=$total
+  while (( i > 0 )); do
+    local mins=$(( i / 60 ))
+    local secs=$(( i % 60 ))
+    local done_pct=$(( (total - i) * 20 / total ))
+    local bar=""
+    for (( j=0; j<20; j++ )); do
+      (( j < done_pct )) && bar+="█" || bar+="░"
+    done
+    printf "\r  ☕ [%s] %02d:%02d remaining " "$bar" "$mins" "$secs"
+    sleep 1
+    (( i-- ))
+  done
+  printf "\r  ☕ [████████████████████] Done! %-10s\n" ""
+}
+
+weather() { curl -s "wttr.in/${1:-TelAviv}?format=4" }
+
 # Copy current tmux pane (with colors) as HTML to clipboard
 tmux2html() {
   if [ -n "$TMUX" ]; then
