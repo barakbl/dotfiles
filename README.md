@@ -12,6 +12,7 @@ dotfiles/
 │   └── .config/
 │       └── starship.toml
 ├── tmux/
+│   └── .tmux.conf
 ├── zsh/
 │   └── .config/
 │       └── zsh/
