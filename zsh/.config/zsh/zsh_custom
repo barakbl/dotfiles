@@ -22,7 +22,7 @@ zmvnospaces_run() { zmv  '(**/)(* *)' '$1${2//( #-## #| ##)/-}' }
 t() { tmux new-session -A -s "${1:-main}" }
 
 # Copy current tmux pane (with colors) as HTML to clipboard
-iterm2html() {
+tmux2html() {
   if [ -n "$TMUX" ]; then
     tmux capture-pane -p -e | ansifilter --html | pbcopy
     echo "Screen HTML copied to clipboard"
