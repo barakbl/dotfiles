@@ -3,7 +3,7 @@
 set -e
 
 DOTFILES_DIR="$HOME/dotfiles"
-BREW_APPS=(fd nerdfetch docker zsh-autosuggestions zplug lsd lazygit tmux btop git  fzf zsh starship stow)
+BREW_APPS=(ansifilter fd nerdfetch docker zsh-autosuggestions zplug lsd lazygit tmux btop git  fzf zsh starship stow)
 
 echo "=============="
 echo "Dotfiles Setup"

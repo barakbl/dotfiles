@@ -21,6 +21,16 @@ zmvnospaces_run() { zmv  '(**/)(* *)' '$1${2//( #-## #| ##)/-}' }
 
 t() { tmux new-session -A -s "${1:-main}" }
 
+# Copy current tmux pane (with colors) as HTML to clipboard
+iterm2html() {
+  if [ -n "$TMUX" ]; then
+    tmux capture-pane -p -e | ansifilter --html | pbcopy
+    echo "Screen HTML copied to clipboard"
+  else
+    echo "Not in a tmux session"
+  fi
+}
+
 export FZF_COMPLETION_TRIGGER="**"
 source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 export FZF_CTRL_R_OPTS="--prompt 'History> ' --with-nth 2.."
