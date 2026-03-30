@@ -37,4 +37,25 @@ export FZF_CTRL_R_OPTS="--prompt 'History> ' --with-nth 2.."
 export PATH="$HOME/.local/bin:$PATH"
 eval "$(starship init zsh)"
 source <(fzf --zsh)
+
+# Automatically activate/deactivate virtual environments
+autoload -U add-zsh-hook
+
+load-venv() {
+    if [[ -d "venv" ]]; then
+        if [[ "$VIRTUAL_ENV" != "$PWD/venv" ]]; then
+            source venv/bin/activate
+            echo "🐍 Activated venv"
+        fi
+    elif [[ -n "$VIRTUAL_ENV" ]]; then
+        deactivate
+        echo "🔒 Deactivated venv"
+    fi
+}
+
+add-zsh-hook chpwd load-venv
+load-venv # Run on initial shell open
+
+
+
 nerdfetch
