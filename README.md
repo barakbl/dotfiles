@@ -91,3 +91,33 @@ stow -n -v starship
 | `starship` | Starship shell prompt config   |
 | `tmux`    | tmux configuration              |
 | `zsh`     | Zsh configuration and customs   |
+
+## Zsh Aliases & Functions
+
+Defined in `zsh/.config/zsh/zsh_custom`:
+
+| Alias/Function | Description |
+|---|---|
+| `ls`, `l`, `la`, `lla`, `lt` | `lsd` variants |
+| `top` | `btop` |
+| `c` | `clear` |
+| `h` | `history` |
+| `gs` | `git status` |
+| `nvimf` | Open file picker with `fzf` in `nvim` |
+| `t [name]` | Attach or create a tmux session (default: `main`) |
+| `tmux2html` | Capture current tmux pane with colors as HTML and copy to clipboard |
+| `zmvlower` | Dry-run rename files to lowercase (recursive) |
+| `zmvlower_run` | Rename files to lowercase (recursive) |
+| `zmvnospaces` | Dry-run rename files replacing spaces with `-` |
+| `zmvnospaces_run` | Rename files replacing spaces with `-` |
+
+## tmux
+
+Prefix remapped to `C-a`. Key bindings:
+
+| Key | Action |
+|---|---|
+| `\|` | Split pane horizontally |
+| `-` | Split pane vertically |
+| `M-Arrow` | Navigate panes |
+| `r` | Reload `~/.tmux.conf` |
