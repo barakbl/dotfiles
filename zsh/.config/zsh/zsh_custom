@@ -1,3 +1,9 @@
+
+### vars for osx ###
+music_svc='Music' # change to Spotify for spotify
+
+
+### aliases ###
 alias ls='lsd'
 alias l='lsd -l'
 alias la='lsd -a'
@@ -18,6 +24,8 @@ zmvlower() { zmv -Qvn '(**/)(*)(.D)' '$1${(L)2}' }
 zmvlower_run() { zmv -Qv '(**/)(*)(.D)' '$1${(L)2}' }
 zmvnospaces() { zmv -n  '(**/)(* *)' '$1${2//( #-## #| ##)/-}' }
 zmvnospaces_run() { zmv  '(**/)(* *)' '$1${2//( #-## #| ##)/-}' }
+
+
 
 t() { tmux new-session -A -s "${1:-main}" }
 
@@ -83,6 +91,17 @@ load-venv() {
 add-zsh-hook chpwd load-venv
 load-venv # Run on initial shell open
 
+
+### OSX only ###
+if [[ "$OSTYPE" == "darwin"* ]]; then
+	mute() { osascript -e 'set volume with output muted'  }
+	music() {
+			osascript -e "tell application \"$music_svc\" to ${1:-playpause}"
+	}
+
+fi
+
+###
 
 if [[ -f ~/.config/zsh/zsh_custom.local ]]; then
 	source ~/.config/zsh/zsh_custom.local

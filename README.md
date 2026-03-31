@@ -109,6 +109,8 @@ Defined in `zsh/.config/zsh/zsh_custom`:
 | `tmux2html` | Capture current tmux pane with colors as HTML and copy to clipboard |
 | `coffee [time]` | Countdown timer with progress bar (e.g. `coffee 10m`, `coffee 30s`, default `5m`) |
 | `weather [location]` | Show current weather (e.g. `weather London`, default: Tel Aviv) |
+| `mute` | Mute system volume (macOS only) |
+| `music [app]` | Toggle play/pause in Music app (macOS only, default: `Music`) |
 | `zmvlower` | Dry-run rename files to lowercase (recursive) |
 | `zmvlower_run` | Rename files to lowercase (recursive) |
 | `zmvnospaces` | Dry-run rename files replacing spaces with `-` |
