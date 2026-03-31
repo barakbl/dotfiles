@@ -110,11 +110,27 @@ Defined in `zsh/.config/zsh/zsh_custom`:
 | `coffee [time]` | Countdown timer with progress bar (e.g. `coffee 10m`, `coffee 30s`, default `5m`) |
 | `weather [location]` | Show current weather (e.g. `weather London`, default: Tel Aviv) |
 | `mute` | Mute system volume (macOS only) |
-| `music [app]` | Toggle play/pause in Music app (macOS only, default: `Music`) |
+| `music [action]` | Control music app (macOS only, default action: `playpause`) |
 | `zmvlower` | Dry-run rename files to lowercase (recursive) |
 | `zmvlower_run` | Rename files to lowercase (recursive) |
 | `zmvnospaces` | Dry-run rename files replacing spaces with `-` |
 | `zmvnospaces_run` | Rename files replacing spaces with `-` |
+
+### music
+
+The `music` function controls whichever app is set in `music_svc` (top of `zsh_custom`):
+
+```zsh
+music_svc='Music'   # or 'Spotify'
+```
+
+| Command | Action |
+|---|---|
+| `music` | Toggle play/pause |
+| `music playpause` | Toggle play/pause |
+| `music next track` | Skip to next track |
+| `music previous track` | Go to previous track |
+| `music stop` | Stop playback |
 
 ## tmux
 
