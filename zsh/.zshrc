@@ -112,7 +112,7 @@ antidote load
 
 ###
 if [[ -f ~/.config/zsh/zsh_custom.local ]]; then
-	source ~/.config/zsh/zsh_custom.local
+	source ~/.zsh.local
 fi
 eval "$(zoxide init zsh)"
 nerdfetch
