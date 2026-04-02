@@ -17,7 +17,7 @@ alias gs='git status'
 
 alias nvimf='nvim $(fzf)'
 
-plugins=(lazydocker brew git docker pip python sudo z command-not-found zsh-autosuggestions zsh-syntax-highlighting)
+plugins=(lazydocker brew docker pip python sudo z command-not-found zsh-autosuggestions zsh-syntax-highlighting)
 
 autoload zmv
 zmvlower() { zmv -Qvn '(**/)(*)(.D)' '$1${(L)2}' }
@@ -90,6 +90,10 @@ load-venv() {
 
 add-zsh-hook chpwd load-venv
 load-venv # Run on initial shell open
+
+
+### gostty 
+export XDG_CONFIG_HOME=~
 
 
 ### OSX only ###
