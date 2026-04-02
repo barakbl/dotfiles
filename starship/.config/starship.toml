@@ -7,9 +7,9 @@ add_newline = true
 
 continuation_prompt = '[>>](bold green)'
 
-right_format = """
-$git_branch\
-"""
+#right_format = """
+#$git_branch\
+#"""
 
 # Replace the '❯' symbol in the prompt with '➜'
 [character] # The name of the module we are configuring is 'character'
