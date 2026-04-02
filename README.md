@@ -8,15 +8,18 @@ Each top-level directory is a "stow package" that mirrors the target directory s
 
 ```
 dotfiles/
+├── ghostty/
+│   └── .config/
+│       └── ghostty/
+│           └── config
 ├── starship/
 │   └── .config/
 │       └── starship.toml
 ├── tmux/
 │   └── .tmux.conf
 ├── zsh/
-│   └── .config/
-│       └── zsh/
-│           └── zsh_custom
+│   ├── .zshrc
+│   └── .zsh_plugins.txt
 └── setup-mac.sh
 ```
 
@@ -44,7 +47,7 @@ cd ~/dotfiles
 Symlink all packages at once:
 
 ```bash
-stow starship tmux zsh
+stow ghostty starship tmux zsh
 ```
 
 Or stow a single package:
@@ -87,15 +90,29 @@ stow -n -v starship
 
 ## Packages
 
-| Package   | Contents                        |
-|-----------|---------------------------------|
-| `starship` | Starship shell prompt config   |
-| `tmux`    | tmux configuration              |
-| `zsh`     | Zsh configuration and customs   |
+| Package    | Contents                              |
+|------------|---------------------------------------|
+| `ghostty`  | Ghostty terminal config (Catppuccin)  |
+| `starship` | Starship shell prompt config          |
+| `tmux`     | tmux configuration                    |
+| `zsh`      | Zsh configuration, aliases & plugins  |
 
-## Zsh Aliases & Functions
+## Zsh
 
-Defined in `zsh/.config/zsh/zsh_custom`:
+### Plugin management
+
+Plugins are managed with [antidote](https://getantidote.github.io/). Edit `zsh/.zsh_plugins.txt` to add or remove plugins. Current plugins:
+
+- `zsh-vi-mode` — vi-mode keybindings
+- `fast-syntax-highlighting` — syntax highlighting (deferred)
+
+### Local config
+
+Machine-specific config can be placed in `~/.zsh.local` (gitignored via `*.local`). It is sourced at the end of `.zshrc`.
+
+### Aliases & Functions
+
+Defined in `zsh/.zshrc`:
 
 | Alias/Function | Description |
 |---|---|
@@ -103,7 +120,6 @@ Defined in `zsh/.config/zsh/zsh_custom`:
 | `top` | `btop` |
 | `c` | `clear` |
 | `h` | `history` |
-| `gs` | `git status` |
 | `nvimf` | Open file picker with `fzf` in `nvim` |
 | `t [name]` | Attach or create a tmux session (default: `main`) |
 | `tmux2html` | Capture current tmux pane with colors as HTML and copy to clipboard |
@@ -115,10 +131,11 @@ Defined in `zsh/.config/zsh/zsh_custom`:
 | `zmvlower_run` | Rename files to lowercase (recursive) |
 | `zmvnospaces` | Dry-run rename files replacing spaces with `-` |
 | `zmvnospaces_run` | Rename files replacing spaces with `-` |
+| `load-venv` | Auto-activate/deactivate Python venv on `cd` |
 
 ### music
 
-The `music` function controls whichever app is set in `music_svc` (top of `zsh_custom`):
+The `music` function controls whichever app is set in `music_svc` (top of `.zshrc`):
 
 ```zsh
 music_svc='Music'   # or 'Spotify'
@@ -131,6 +148,13 @@ music_svc='Music'   # or 'Spotify'
 | `music next track` | Skip to next track |
 | `music previous track` | Go to previous track |
 | `music stop` | Stop playback |
+
+### Integrations
+
+- **zoxide** — smarter `cd` (loaded via `eval "$(zoxide init zsh)"`)
+- **fzf** — fuzzy finder for files and history (`Ctrl-R`)
+- **nerdfetch** — system info displayed on shell startup
+- **zsh-autosuggestions** — fish-like suggestions as you type
 
 ## tmux
 
