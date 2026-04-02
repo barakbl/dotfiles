@@ -13,11 +13,10 @@ alias lt='lsd --tree'
 alias top='btop'
 alias c='clear'
 alias h='history'
-alias gs='git status'
+
 
 alias nvimf='nvim $(fzf)'
 
-plugins=(lazydocker brew docker pip python sudo z command-not-found zsh-autosuggestions zsh-syntax-highlighting)
 
 autoload zmv
 zmvlower() { zmv -Qvn '(**/)(*)(.D)' '$1${(L)2}' }
@@ -107,8 +106,13 @@ fi
 
 ###
 
+source $(brew --prefix)/opt/antidote/share/antidote/antidote.zsh
+antidote load
+
+
+###
 if [[ -f ~/.config/zsh/zsh_custom.local ]]; then
 	source ~/.config/zsh/zsh_custom.local
 fi
-
+eval "$(zoxide init zsh)"
 nerdfetch
