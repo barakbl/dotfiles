@@ -17,6 +17,10 @@ dotfiles/
 │       └── starship.toml
 ├── tmux/
 │   └── .tmux.conf
+├── zellij/
+│   └── .config/
+│       └── zellij/
+│           └── config.kdl
 ├── zsh/
 │   ├── .zshrc
 │   └── .zsh_plugins.txt
@@ -47,7 +51,7 @@ cd ~/dotfiles
 Symlink all packages at once:
 
 ```bash
-stow ghostty starship tmux zsh
+stow ghostty starship tmux zellij zsh
 ```
 
 Or stow a single package:
@@ -95,6 +99,7 @@ stow -n -v starship
 | `ghostty`  | Ghostty terminal config (Catppuccin)  |
 | `starship` | Starship shell prompt config          |
 | `tmux`     | tmux configuration                    |
+| `zellij`   | Zellij terminal multiplexer config    |
 | `zsh`      | Zsh configuration, aliases & plugins  |
 
 ## Zsh
@@ -155,6 +160,35 @@ music_svc='Music'   # or 'Spotify'
 - **fzf** — fuzzy finder for files and history (`Ctrl-R`)
 - **nerdfetch** — system info displayed on shell startup
 - **zsh-autosuggestions** — fish-like suggestions as you type
+
+## Zellij
+
+Terminal multiplexer with Catppuccin Macchiato theme, vim-style keybinds (`clear-defaults=true`), and tmux compatibility mode (`Ctrl-b` prefix).
+
+| Mode | Key | Action |
+|---|---|---|
+| **Pane** (`Ctrl-p`) | `h/j/k/l` | Navigate panes |
+| | `n` | New pane |
+| | `d` / `r` | Split down / right |
+| | `f` | Fullscreen toggle |
+| | `x` | Close pane |
+| **Tab** (`Ctrl-t`) | `n` | New tab |
+| | `1-9` | Go to tab N |
+| | `r` | Rename tab |
+| | `x` | Close tab |
+| **Resize** (`Ctrl-n`) | `h/j/k/l` | Increase size |
+| | `H/J/K/L` | Decrease size |
+| **Scroll** (`Ctrl-s`) | `j/k` | Scroll down/up |
+| | `d/u` | Half-page down/up |
+| | `s` | Enter search |
+| **Session** (`Ctrl-o`) | `w` | Session manager |
+| | `d` | Detach |
+| **tmux** (`Ctrl-b`) | `"` / `%` | Split down / right |
+| | `c` | New tab |
+| | `n/p` | Next/previous tab |
+| **Global** | `Alt h/j/k/l` | Navigate panes/tabs |
+| | `Alt n` | New pane |
+| | `Ctrl-g` | Lock mode |
 
 ## tmux
 
