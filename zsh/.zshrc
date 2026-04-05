@@ -14,7 +14,6 @@ alias top='btop'
 alias c='clear'
 alias h='history'
 
-
 alias nvimf='nvim $(fzf)'
 
 
@@ -109,6 +108,10 @@ fi
 source $(brew --prefix)/opt/antidote/share/antidote/antidote.zsh
 antidote load
 
+
+bindkey '^[[A' history-substring-search-up
+bindkey '^[[B' history-substring-search-down
+bindkey '^R' fzf-history-widget
 
 ###
 if [[ -f ~/.config/zsh/zsh_custom.local ]]; then

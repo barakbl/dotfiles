@@ -2,3 +2,19 @@ background = 282c34
 foreground = ffffff
 
 theme = Catppuccin Mocha
+
+# === Background Settings ===
+background-opacity = 1.0         # Number: 0.0-1.0
+background-blur-radius = 0       # Integer: Blur radius in pixels
+unfocused-split-opacity = 1.0    # Number: 0.15-1.0
+unfocused-split-fill = ""        # Color: Hex code (#RRGGBB)
+
+
+
+macos-non-native-fullscreen = false    # Values: "visible-menu", "true", "false"
+macos-titlebar-style = "transparent"   # Values: "native", "transparent", "tabs", "hidden"
+macos-titlebar-proxy-icon = "visible"  # Values: "visible", "hidden"
+macos-option-as-alt = left            # Values: "true", "false", "left", "right"
+macos-window-shadow = true             # Boolean: true/false
+macos-auto-secure-input = true         # Boolean: true/false
+macos-secure-input-indication = true   # Boolean: true/false
