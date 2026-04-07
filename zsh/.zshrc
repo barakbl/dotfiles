@@ -1,9 +1,50 @@
 
-### vars for osx ###
-music_svc='Music' # change to Spotify for spotify
+# ─────────────────────────────────────────────
+#  Environment
+# ─────────────────────────────────────────────
+
+music_svc='Music'  # swap to 'Spotify' if needed
+
+export PATH="$HOME/.local/bin:$PATH"
+export XDG_CONFIG_HOME=~
 
 
-### aliases ###
+
+# ─────────────────────────────────────────────
+#  Prompt & Shell Plugins
+# ─────────────────────────────────────────────
+
+eval "$(starship init zsh)"
+eval "$(zoxide init zsh)"
+
+source $(brew --prefix)/opt/antidote/share/antidote/antidote.zsh
+antidote load
+
+source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+source <(fzf --zsh)
+
+
+# ─────────────────────────────────────────────
+#  Key Bindings
+# ─────────────────────────────────────────────
+
+bindkey '^[[A' history-substring-search-up
+bindkey '^[[B' history-substring-search-down
+bindkey '^R'   fzf-history-widget
+
+
+# ─────────────────────────────────────────────
+#  FZF
+# ─────────────────────────────────────────────
+
+export FZF_COMPLETION_TRIGGER="**"
+export FZF_CTRL_R_OPTS="--prompt 'History> ' --with-nth 2.."
+
+
+# ─────────────────────────────────────────────
+#  Aliases
+# ─────────────────────────────────────────────
+
 alias ls='lsd'
 alias l='lsd -l'
 alias la='lsd -a'
@@ -14,34 +55,46 @@ alias top='btop'
 alias c='clear'
 alias h='history'
 
+alias ze='zellij attach main'
 alias nvimf='nvim $(fzf)'
 
+alias g='git'
+alias gp='git pull'
+alias gd='git diff'
+alias gba='git branch -all'
+alias gco='git checkout'
+alias gcm='git checkout $(git_main_branch)'
+alias gpush='git push'
+alias gc='git commit --all --message'
 
-autoload zmv
-zmvlower() { zmv -Qvn '(**/)(*)(.D)' '$1${(L)2}' }
-zmvlower_run() { zmv -Qv '(**/)(*)(.D)' '$1${(L)2}' }
-zmvnospaces() { zmv -n  '(**/)(* *)' '$1${2//( #-## #| ##)/-}' }
-zmvnospaces_run() { zmv  '(**/)(* *)' '$1${2//( #-## #| ##)/-}' }
 
-
+# ─────────────────────────────────────────────
+#  Functions
+# ─────────────────────────────────────────────
 
 t() { tmux new-session -A -s "${1:-main}" }
 
+weather() { curl -s "wttr.in/${1:-TelAviv}?format=4" }
+
+# Capture current tmux pane as HTML and copy to clipboard
+tmux2html() {
+  [[ -z "$TMUX" ]] && echo "Not in a tmux session" && return 1
+  tmux capture-pane -p -e | ansifilter --html | pbcopy
+  echo "Screen HTML copied to clipboard"
+}
+
 coffee() {
-  local input="${1:-5m}"
-  local total
+  local input="${1:-5m}" total
   case $input in
     *m) total=$(( ${input%m} * 60 )) ;;
     *s) total=${input%s} ;;
-    *)  echo "Usage: coffee [<n>s|<n>m]  (e.g. 10s, 5m)"; return 1 ;;
+    *)  echo "Usage: coffee [<n>s|<n>m]  (e.g. 10s, 5m)" && return 1 ;;
   esac
 
   local i=$total
   while (( i > 0 )); do
-    local mins=$(( i / 60 ))
-    local secs=$(( i % 60 ))
-    local done_pct=$(( (total - i) * 20 / total ))
-    local bar=""
+    local mins=$(( i / 60 )) secs=$(( i % 60 ))
+    local done_pct=$(( (total - i) * 20 / total )) bar=""
     for (( j=0; j<20; j++ )); do
       (( j < done_pct )) && bar+="█" || bar+="░"
     done
@@ -52,70 +105,56 @@ coffee() {
   printf "\r  ☕ [████████████████████] Done! %-10s\n" ""
 }
 
-weather() { curl -s "wttr.in/${1:-TelAviv}?format=4" }
 
-# Copy current tmux pane (with colors) as HTML to clipboard
-tmux2html() {
-  if [ -n "$TMUX" ]; then
-    tmux capture-pane -p -e | ansifilter --html | pbcopy
-    echo "Screen HTML copied to clipboard"
-  else
-    echo "Not in a tmux session"
-  fi
-}
+# ─────────────────────────────────────────────
+#  zmv Utilities  (bulk rename helpers)
+# ─────────────────────────────────────────────
 
-export FZF_COMPLETION_TRIGGER="**"
-source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
-export FZF_CTRL_R_OPTS="--prompt 'History> ' --with-nth 2.."
-export PATH="$HOME/.local/bin:$PATH"
-eval "$(starship init zsh)"
-source <(fzf --zsh)
+autoload zmv
 
-# Automatically activate/deactivate virtual environments
+zmvlower()       { zmv -Qvn '(**/)(*)(.D)' '$1${(L)2}' }
+zmvlower_run()   { zmv -Qv  '(**/)(*)(.D)' '$1${(L)2}' }
+zmvnospaces()    { zmv -n   '(**/)(* *)' '$1${2//( #-## #| ##)/-}' }
+zmvnospaces_run(){ zmv      '(**/)(* *)' '$1${2//( #-## #| ##)/-}' }
+
+
+# ─────────────────────────────────────────────
+#  Python venv  (auto activate/deactivate)
+# ─────────────────────────────────────────────
+
 autoload -U add-zsh-hook
 
 load-venv() {
-    if [[ -d "venv" ]]; then
-        if [[ "$VIRTUAL_ENV" != "$PWD/venv" ]]; then
-            source venv/bin/activate
-            echo "🐍 Activated venv"
-        fi
-    elif [[ -n "$VIRTUAL_ENV" ]]; then
-        deactivate
-        echo "🔒 Deactivated venv"
-    fi
+  if [[ -d "venv" ]]; then
+    [[ "$VIRTUAL_ENV" != "$PWD/venv" ]] && source venv/bin/activate && echo "🐍 Activated venv"
+  elif [[ -n "$VIRTUAL_ENV" ]]; then
+    deactivate && echo "🔒 Deactivated venv"
+  fi
 }
 
 add-zsh-hook chpwd load-venv
-load-venv # Run on initial shell open
+load-venv
 
 
-### gostty 
-export XDG_CONFIG_HOME=~
+# ─────────────────────────────────────────────
+#  macOS Only
+# ─────────────────────────────────────────────
 
-
-### OSX only ###
 if [[ "$OSTYPE" == "darwin"* ]]; then
-	mute() { osascript -e 'set volume with output muted'  }
-	music() {
-			osascript -e "tell application \"$music_svc\" to ${1:-playpause}"
-	}
-
+  mute()  { osascript -e 'set volume with output muted' }
+  music() { osascript -e "tell application \"$music_svc\" to ${1:-playpause}" }
 fi
 
-###
 
-source $(brew --prefix)/opt/antidote/share/antidote/antidote.zsh
-antidote load
+# ─────────────────────────────────────────────
+#  Local Overrides
+# ─────────────────────────────────────────────
+
+[[ -f ~/.zsh.local ]] && source ~/.zsh.local # .zsh_local -> not in git, personal stuff
 
 
-bindkey '^[[A' history-substring-search-up
-bindkey '^[[B' history-substring-search-down
-bindkey '^R' fzf-history-widget
+# ─────────────────────────────────────────────
+#  Greeting
+# ─────────────────────────────────────────────
 
-###
-if [[ -f ~/.config/zsh/zsh_custom.local ]]; then
-	source ~/.zsh.local
-fi
-eval "$(zoxide init zsh)"
 nerdfetch
