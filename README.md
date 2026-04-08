@@ -12,6 +12,13 @@ dotfiles/
 │   └── .config/
 │       └── ghostty/
 │           └── config
+├── nvim/
+│   └── .config/
+│       └── nvim/
+│           ├── init.lua
+│           └── lua/
+│               ├── config/
+│               └── plugins/
 ├── starship/
 │   └── .config/
 │       └── starship.toml
@@ -51,7 +58,7 @@ cd ~/dotfiles
 Symlink all packages at once:
 
 ```bash
-stow ghostty starship tmux zellij zsh
+stow ghostty nvim starship tmux zellij zsh
 ```
 
 Or stow a single package:
@@ -97,6 +104,7 @@ stow -n -v starship
 | Package    | Contents                              |
 |------------|---------------------------------------|
 | `ghostty`  | Ghostty terminal config (Catppuccin)  |
+| `nvim`     | Neovim config (LazyVim + Catppuccin)  |
 | `starship` | Starship shell prompt config          |
 | `tmux`     | tmux configuration                    |
 | `zellij`   | Zellij terminal multiplexer config    |
@@ -108,8 +116,11 @@ stow -n -v starship
 
 Plugins are managed with [antidote](https://getantidote.github.io/). Edit `zsh/.zsh_plugins.txt` to add or remove plugins. Current plugins:
 
-- `zsh-vi-mode` — vi-mode keybindings
 - `fast-syntax-highlighting` — syntax highlighting (deferred)
+- `zsh-completions` — additional completions
+- `zephyr` — completion, macOS, and history plugin modules
+- `zsh-autosuggestions` — fish-like suggestions as you type
+- `zsh-history-substring-search` — up/down arrow history search
 
 ### Local config
 
@@ -125,8 +136,17 @@ Defined in `zsh/.zshrc`:
 | `top` | `btop` |
 | `c` | `clear` |
 | `h` | `history` |
+| `n`, `vi` | `nvim` |
 | `nvimf` | Open file picker with `fzf` in `nvim` |
-| `t [name]` | Attach or create a tmux session (default: `main`) |
+| `ze` | Attach to Zellij session `main` |
+| `g` | `git` |
+| `gp` | `git pull` |
+| `gd` | `git diff` |
+| `gba` | `git branch --all` |
+| `gco` | `git checkout` |
+| `gcm` | `git checkout <main-branch>` |
+| `gpush` | `git push` |
+| `gc` | `git commit --all --message` |
 | `tmux2html` | Capture current tmux pane with colors as HTML and copy to clipboard |
 | `coffee [time]` | Countdown timer with progress bar (e.g. `coffee 10m`, `coffee 30s`, default `5m`) |
 | `weather [location]` | Show current weather (e.g. `weather London`, default: Tel Aviv) |
@@ -157,9 +177,19 @@ music_svc='Music'   # or 'Spotify'
 ### Integrations
 
 - **zoxide** — smarter `cd` (loaded via `eval "$(zoxide init zsh)"`)
-- **fzf** — fuzzy finder for files and history (`Ctrl-R`)
+- **fzf** — fuzzy finder for files and history (`Ctrl-R`, `**` completion trigger)
 - **nerdfetch** — system info displayed on shell startup
-- **zsh-autosuggestions** — fish-like suggestions as you type
+- **starship** — shell prompt
+
+## Neovim
+
+Built on [LazyVim](https://www.lazyvim.org/) with Catppuccin colorscheme.
+
+| Path | Purpose |
+|---|---|
+| `init.lua` | Entry point |
+| `lua/config/` | Options, keymaps, autocmds |
+| `lua/plugins/` | Plugin overrides (colorscheme, etc.) |
 
 ## Zellij
 
