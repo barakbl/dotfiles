@@ -74,6 +74,8 @@ alias gcm='git checkout $(git_main_branch)'
 alias gpush='git push'
 alias gc='git commit --all --message'
 
+alias n='nvim'
+alias vi=n
 
 # ─────────────────────────────────────────────
 #  Functions
