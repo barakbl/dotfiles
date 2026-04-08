@@ -32,6 +32,14 @@ bindkey '^[[A' history-substring-search-up
 bindkey '^[[B' history-substring-search-down
 bindkey '^R'   fzf-history-widget
 
+# ─────────────────────────────────────────────
+#  zsh history
+# ─────────────────────────────────────────────
+HISTFILE=$HOME/.zsh_history
+HISTSIZE=10000
+SAVEHIST=10000
+setopt SHARE_HISTORY
+
 
 # ─────────────────────────────────────────────
 #  FZF
@@ -158,3 +166,6 @@ fi
 # ─────────────────────────────────────────────
 
 nerdfetch
+
+# bbsnip tab completion
+source "/Users/barak/.config/bbsnip/bbsnip.plugin.zsh"
