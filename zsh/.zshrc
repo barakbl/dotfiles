@@ -77,6 +77,9 @@ alias gc='git commit --all --message'
 alias n='nvim'
 alias vi=n
 
+
+# print_glyphs is a pytyhon script: https://gist.github.com/barakbl/f556df07049cc2968bb60209e7fce69c
+alias glyphs="print_glyphs | fzf | grep -o '^.' | pbcopy"
 # ─────────────────────────────────────────────
 #  Functions
 # ─────────────────────────────────────────────
