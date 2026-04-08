@@ -6,9 +6,8 @@
 music_svc='Music'  # swap to 'Spotify' if needed
 
 export PATH="$HOME/.local/bin:$PATH"
-export XDG_CONFIG_HOME=~
-
-
+export XDG_CONFIG_HOME="$HOME/.config"
+export EDITOR='nvim'
 
 # ─────────────────────────────────────────────
 #  Prompt & Shell Plugins
@@ -20,7 +19,7 @@ eval "$(zoxide init zsh)"
 source $(brew --prefix)/opt/antidote/share/antidote/antidote.zsh
 antidote load
 
-source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+#source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 source <(fzf --zsh)
 
 
@@ -80,7 +79,7 @@ alias gc='git commit --all --message'
 #  Functions
 # ─────────────────────────────────────────────
 
-t() { tmux new-session -A -s "${1:-main}" }
+# t() { tmux new-session -A -s "${1:-main}" }
 
 weather() { curl -s "wttr.in/${1:-TelAviv}?format=4" }
 
