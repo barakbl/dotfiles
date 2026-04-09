@@ -78,8 +78,8 @@ alias n='nvim'
 alias vi=n
 
 
-# print_glyphs is a pytyhon script: https://gist.github.com/barakbl/f556df07049cc2968bb60209e7fce69c
-alias glyphs="print_glyphs | fzf | grep -o '^.' | pbcopy"
+# created using scripts/print_glyphs.py script
+alias glyphs="cat ~/.glyphs.txt | fzf | grep -o '^.' | pbcopy"
 # ─────────────────────────────────────────────
 #  Functions
 # ─────────────────────────────────────────────
@@ -173,3 +173,6 @@ nerdfetch
 
 # bbsnip tab completion
 source "/Users/barak/.config/bbsnip/bbsnip.plugin.zsh"
+
+# OpenFang
+export PATH=/Users/barak/.openfang/bin:$PATH

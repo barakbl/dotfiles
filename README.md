@@ -30,7 +30,10 @@ dotfiles/
 │           └── config.kdl
 ├── zsh/
 │   ├── .zshrc
+│   ├── .glyphs.txt
 │   └── .zsh_plugins.txt
+├── scripts/
+│   └── print_glyphs.py
 └── setup-mac.sh
 ```
 
@@ -147,6 +150,7 @@ Defined in `zsh/.zshrc`:
 | `gcm` | `git checkout <main-branch>` |
 | `gpush` | `git push` |
 | `gc` | `git commit --all --message` |
+| `glyphs` | Pick a Nerd Font glyph with `fzf` and copy it to clipboard |
 | `tmux2html` | Capture current tmux pane with colors as HTML and copy to clipboard |
 | `coffee [time]` | Countdown timer with progress bar (e.g. `coffee 10m`, `coffee 30s`, default `5m`) |
 | `weather [location]` | Show current weather (e.g. `weather London`, default: Tel Aviv) |
@@ -180,6 +184,19 @@ music_svc='Music'   # or 'Spotify'
 - **fzf** — fuzzy finder for files and history (`Ctrl-R`, `**` completion trigger)
 - **nerdfetch** — system info displayed on shell startup
 - **starship** — shell prompt
+
+## Scripts
+
+Utility scripts in `scripts/` (not stow packages):
+
+| Script | Description |
+|---|---|
+| `print_glyphs.py` | Fetches Nerd Font glyph names from the upstream repo and prints all glyphs with codepoints and names to stdout. Used to generate `~/.glyphs.txt` for the `glyphs` alias. |
+
+To regenerate the glyphs file:
+```bash
+python3 scripts/print_glyphs.py > ~/.glyphs.txt
+```
 
 ## Neovim
 
