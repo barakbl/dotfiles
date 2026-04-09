@@ -141,6 +141,8 @@ Defined in `zsh/.zshrc`:
 | `h` | `history` |
 | `n`, `vi` | `nvim` |
 | `nvimf` | Open file picker with `fzf` in `nvim` |
+| `fp [dir]` | Fuzzy-find a file in `dir` (default: `.`) and preview with `bat` |
+| `sql [dir]` | Open the latest `.db` file in `dir` (default: `.`) with `sqlite3` |
 | `ze` | Attach to Zellij session `main` |
 | `g` | `git` |
 | `gp` | `git pull` |
