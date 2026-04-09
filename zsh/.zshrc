@@ -79,6 +79,8 @@ alias vi=n
 
 fp() { fd . "${1:-.}" --type f | fzf --preview 'bat --style=numbers --color=always --line-range :500 {}'; }
 
+sql() { sqlite3 "$(ls -t "${1:-.}"/*.db 2>/dev/null | head -1)"; }
+
 # created using scripts/print_glyphs.py script
 alias glyphs="cat ~/.glyphs.txt | fzf --exact | grep -o '^.' | pbcopy"
 # ─────────────────────────────────────────────
