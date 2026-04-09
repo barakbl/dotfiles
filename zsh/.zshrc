@@ -77,9 +77,10 @@ alias gc='git commit --all --message'
 alias n='nvim'
 alias vi=n
 
+fp() { fd . "${1:-.}" --type f | fzf --preview 'bat --style=numbers --color=always --line-range :500 {}'; }
 
 # created using scripts/print_glyphs.py script
-alias glyphs="cat ~/.glyphs.txt | fzf | grep -o '^.' | pbcopy"
+alias glyphs="cat ~/.glyphs.txt | fzf --exact | grep -o '^.' | pbcopy"
 # ─────────────────────────────────────────────
 #  Functions
 # ─────────────────────────────────────────────
