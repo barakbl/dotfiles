@@ -144,6 +144,11 @@ LazyVim-based config with Python LSP (pyright + ruff).
 | `M-r` | Split pane horizontally |
 | `M-d` | Split pane vertically |
 
+### Aliases
+| Alias | Action |
+|-------|--------|
+| `st` | Reload tmux config (`tmux source-file ~/.tmux.conf`) |
+
 ---
 
 ## Useful Commands
