@@ -19,4 +19,18 @@ success_symbol = '[>](bold green)' # The 'success_symbol' segment is being set t
 [package]
 disabled = true
 
+[lua]
+disabled = true
+
+[git_status]
+modified = "~"
+untracked = ""
+staged = ""
+deleted = ""
+ahead = "⇡"
+behind = "⇣"
+diverged = "⇕"
+format = '([$all_status$ahead_behind]($style))'
+style = "yellow"
+
 
