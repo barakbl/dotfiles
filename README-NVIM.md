@@ -128,7 +128,7 @@ LazyVim-based config with Python LSP (pyright + ruff).
 
 ## Tmux
 
-> `M` = **Alt**
+> `M` = **Alt** — all bindings work **without** the `C-a` prefix
 
 ### Pane Navigation
 | Key | Action |
