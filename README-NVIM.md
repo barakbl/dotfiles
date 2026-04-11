@@ -126,31 +126,6 @@ LazyVim-based config with Python LSP (pyright + ruff).
 
 ---
 
-## Tmux
-
-> `M` = **Alt** — all bindings work **without** the `C-a` prefix
-
-### Pane Navigation
-| Key | Action |
-|-----|--------|
-| `M-Left` / `M-h` | Move to left pane |
-| `M-Right` / `M-l` | Move to right pane |
-| `M-Up` / `M-k` | Move to pane above |
-| `M-Down` / `M-m` | Move to pane below |
-
-### Pane Splitting
-| Key | Action |
-|-----|--------|
-| `M-r` | Split pane horizontally |
-| `M-d` | Split pane vertically |
-
-### Aliases
-| Alias | Action |
-|-------|--------|
-| `st` | Reload tmux config (`tmux source-file ~/.tmux.conf`) |
-
----
-
 ## Useful Commands
 
 ```
