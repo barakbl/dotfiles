@@ -15,6 +15,17 @@
   M-r              split horizontal
   M-d              split vertical
 
+ PANE RESIZE              (prefix = C-a)
+ ─────────────────────────────────────
+  prefix H         resize left
+  prefix J         resize down
+  prefix K         resize up
+  prefix L         resize right
+
+ PANE CLOSE               (no prefix)
+ ─────────────────────────────────────
+  M-q              kill pane
+
  GENERAL                  (prefix = C-a)
  ─────────────────────────────────────
   prefix r         reload config

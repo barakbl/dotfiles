@@ -315,6 +315,19 @@ Theme: [Catppuccin Mocha](https://github.com/catppuccin/tmux) — installed as a
 | `M-r` | Split pane horizontally |
 | `M-d` | Split pane vertically |
 
+### Pane Resize
+| Key | Action |
+|---|---|
+| `prefix + H` | Resize left 5 cells |
+| `prefix + J` | Resize down 5 cells |
+| `prefix + K` | Resize up 5 cells |
+| `prefix + L` | Resize right 5 cells |
+
+### Close Pane
+| Key | Action |
+|---|---|
+| `M-q` | Kill current pane |
+
 ### Other Bindings
 | Key | Action |
 |---|---|
