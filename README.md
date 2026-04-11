@@ -160,6 +160,7 @@ Defined in `zsh/.zshrc`:
 | `glyphs` | Pick a Nerd Font glyph with `fzf` and copy it to clipboard |
 | `tmux2html` | Capture current tmux pane with colors as HTML and copy to clipboard |
 | `y [args]` | Yazi file manager wrapper — `cd`s to the directory yazi exits into |
+| `t [name]` | Attach to (or create) a tmux session named `name` (default: `main`) |
 | `coffee [time]` | Countdown timer with progress bar (e.g. `coffee 10m`, `coffee 30s`, default `5m`) |
 | `weather [location]` | Show current weather (e.g. `weather London`, default: Tel Aviv) |
 | `mute` | Mute system volume (macOS only) |
@@ -215,6 +216,25 @@ Minimal — only shows what matters:
 | `⇣` | Behind remote |
 | `⇕` | Diverged |
 | *(nothing)* | Clean |
+
+## Ghostty
+
+Ghostty terminal with Catppuccin Mocha theme.
+
+### Keybindings
+
+| Binding | Sends | Purpose |
+|---|---|---|
+| `Alt+Left` | `\x1b[1;3D` | Word-left / pane nav in apps |
+| `Alt+Right` | `\x1b[1;3C` | Word-right / pane nav in apps |
+| `Alt+Up` | `\x1b[1;3A` | Pane nav up |
+| `Alt+Down` | `\x1b[1;3B` | Pane nav down |
+
+`macos-option-as-alt = left` — the left Option key is treated as Alt, enabling these bindings.
+
+## Kitty
+
+Kitty terminal with `macos_option_as_alt yes` — the Option key acts as Alt, enabling Alt-based keybindings in terminal apps (e.g. tmux pane navigation, word-jump in editors).
 
 ## Scripts
 
@@ -292,6 +312,10 @@ Prefix remapped to `C-a`. Pane navigation and splitting use `Alt` (`M`) directly
 | `\|` | Split pane horizontally (with prefix) |
 | `-` | Split pane vertically (with prefix) |
 | `prefix + r` | Reload `~/.tmux.conf` |
+
+### Inactive pane dimming
+
+Inactive panes use a slightly darker background (`colour236`) while the active pane uses `colour235`, giving a subtle visual focus indicator.
 
 ### Aliases
 | Alias | Action |
