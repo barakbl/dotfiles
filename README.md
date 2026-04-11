@@ -27,7 +27,13 @@ dotfiles/
 │   └── .config/
 │       └── starship.toml
 ├── tmux/
-│   └── .tmux.conf
+│   ├── .tmux.conf
+│   ├── .tmux-cheatsheet
+│   └── .config/
+│       └── tmux/
+│           └── plugins/
+│               └── catppuccin/
+│                   └── tmux/  ← git submodule
 ├── zellij/
 │   └── .config/
 │       └── zellij/
@@ -56,7 +62,7 @@ This installs Homebrew packages including `stow`, `zsh`, `starship`, and other t
 ### 2. Clone the repo
 
 ```bash
-git clone https://github.com/barakbl/dotfiles ~/dotfiles
+git clone --recurse-submodules https://github.com/barakbl/dotfiles ~/dotfiles
 cd ~/dotfiles
 ```
 
@@ -114,7 +120,7 @@ stow -n -v starship
 | `kitty`    | Kitty terminal config                 |
 | `nvim`     | Neovim config (LazyVim + Catppuccin)  |
 | `starship` | Starship shell prompt config          |
-| `tmux`     | tmux configuration                    |
+| `tmux`     | tmux config + Catppuccin plugin (submodule) |
 | `zellij`   | Zellij terminal multiplexer config    |
 | `zsh`      | Zsh configuration, aliases & plugins  |
 
@@ -291,6 +297,9 @@ Terminal multiplexer with Catppuccin Macchiato theme, vim-style keybinds (`clear
 ## tmux
 
 Prefix remapped to `C-a`. Pane navigation and splitting use `Alt` (`M`) directly — **no prefix needed**.
+
+Theme: [Catppuccin Mocha](https://github.com/catppuccin/tmux) — installed as a git submodule at `tmux/.config/tmux/plugins/catppuccin/tmux/`. A cheatsheet is available at `~/.tmux-cheatsheet`.
+
 
 ### Pane Navigation
 | Key | Action |
