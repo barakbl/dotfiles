@@ -328,6 +328,12 @@ Theme: [Catppuccin Mocha](https://github.com/catppuccin/tmux) — installed as a
 |---|---|
 | `M-q` | Kill current pane |
 
+### Windows / Tabs
+| Key | Action |
+|---|---|
+| `M-t` | New window |
+| `M-1` … `M-9` | Select window by number |
+
 ### Other Bindings
 | Key | Action |
 |---|---|

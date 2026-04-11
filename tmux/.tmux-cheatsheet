@@ -26,6 +26,11 @@
  ─────────────────────────────────────
   M-q              kill pane
 
+ WINDOWS / TABS           (no prefix)
+ ─────────────────────────────────────
+  M-t              new window
+  M-1 … M-9       select window by number
+
  GENERAL                  (prefix = C-a)
  ─────────────────────────────────────
   prefix r         reload config
