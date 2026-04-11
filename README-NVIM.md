@@ -126,6 +126,20 @@ LazyVim-based config with Python LSP (pyright + ruff).
 
 ---
 
+## Tmux
+
+### Pane Navigation
+| Key | Action |
+|-----|--------|
+| `M-Left` / `M-h` | Move to left pane |
+| `M-Right` / `M-l` | Move to right pane |
+| `M-Up` / `M-k` | Move to pane above |
+| `M-Down` / `M-m` | Move to pane below |
+| `M-r` | Split pane horizontally |
+| `M-d` | Split pane vertically |
+
+---
+
 ## Useful Commands
 
 ```
