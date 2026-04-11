@@ -1,0 +1,39 @@
+ ╭─────────────────────────────────────────────────────╮
+ │                  tmux cheatsheet                    │
+ │                  prefix: C-a                        │
+ ╰─────────────────────────────────────────────────────╯
+
+ PANE NAVIGATION          (no prefix)
+ ─────────────────────────────────────
+  M-h / M-Left     move left
+  M-l / M-Right    move right
+  M-k / M-Up       move up
+  M-m / M-Down     move down
+
+ PANE SPLITTING           (no prefix)
+ ─────────────────────────────────────
+  M-r              split horizontal
+  M-d              split vertical
+
+ GENERAL                  (prefix = C-a)
+ ─────────────────────────────────────
+  prefix r         reload config
+  prefix ?         this cheatsheet
+
+ SHELL ALIASES
+ ─────────────────────────────────────
+  t [name]         attach/create session (default: main)
+  st               reload tmux config
+
+ COPY MODE                (prefix [ to enter)
+ ─────────────────────────────────────
+  v                begin selection  (vi mode)
+  y                copy selection
+  q / Esc          exit copy mode
+
+ MOUSE
+ ─────────────────────────────────────
+  enabled          click to focus pane/window
+                   drag to resize panes
+
+                         press q to close
