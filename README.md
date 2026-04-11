@@ -332,6 +332,7 @@ Theme: [Catppuccin Mocha](https://github.com/catppuccin/tmux) — installed as a
 | Key | Action |
 |---|---|
 | `M-t` | New window |
+| `M-,` | Rename window |
 | `M-1` … `M-9` | Select window by number |
 
 ### Other Bindings
