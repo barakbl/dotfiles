@@ -247,11 +247,30 @@ Terminal multiplexer with Catppuccin Macchiato theme, vim-style keybinds (`clear
 
 ## tmux
 
-Prefix remapped to `C-a`. Key bindings:
+Prefix remapped to `C-a`. Pane navigation and splitting use `Alt` (`M`) directly — **no prefix needed**.
 
+### Pane Navigation
 | Key | Action |
 |---|---|
-| `\|` | Split pane horizontally |
-| `-` | Split pane vertically |
-| `M-Arrow` | Navigate panes |
-| `r` | Reload `~/.tmux.conf` |
+| `M-Left` / `M-h` | Move to left pane |
+| `M-Right` / `M-l` | Move to right pane |
+| `M-Up` / `M-k` | Move to pane above |
+| `M-Down` / `M-m` | Move to pane below |
+
+### Pane Splitting
+| Key | Action |
+|---|---|
+| `M-r` | Split pane horizontally |
+| `M-d` | Split pane vertically |
+
+### Other Bindings
+| Key | Action |
+|---|---|
+| `\|` | Split pane horizontally (with prefix) |
+| `-` | Split pane vertically (with prefix) |
+| `prefix + r` | Reload `~/.tmux.conf` |
+
+### Aliases
+| Alias | Action |
+|---|---|
+| `st` | Reload tmux config (`tmux source-file ~/.tmux.conf`) |
