@@ -18,6 +18,11 @@ macos-titlebar-style = transparent
 macos-titlebar-proxy-icon = visible
 # Values: true, false, left, right
 macos-option-as-alt = left
+
+keybind = alt+left=text:\x1b[1;3D
+keybind = alt+right=text:\x1b[1;3C
+keybind = alt+up=text:\x1b[1;3A
+keybind = alt+down=text:\x1b[1;3B
 macos-window-shadow = true
 macos-auto-secure-input = true
 macos-secure-input-indication = true

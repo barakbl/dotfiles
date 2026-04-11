@@ -77,6 +77,7 @@ alias gc='git commit --all --message'
 alias n='nvim'
 alias vi=n
 
+alias st='tmux source-file ~/.tmux.conf; echo "tmux reloaded"'
 fp() { fd . "${1:-.}" --type f | fzf --preview 'bat --style=numbers --color=always --line-range :500 {}'; }
 
 sql() { sqlite3 "$(ls -t "${1:-.}"/*.db 2>/dev/null | head -1)"; }
@@ -87,7 +88,7 @@ alias glyphs="cat ~/.glyphs.txt | fzf --exact | grep -o '^.' | pbcopy"
 #  Functions
 # ─────────────────────────────────────────────
 
-# t() { tmux new-session -A -s "${1:-main}" }
+t() { tmux new-session -A -s "${1:-main}" }
 
 weather() { curl -s "wttr.in/${1:-TelAviv}?format=4" }
 
