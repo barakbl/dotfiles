@@ -309,8 +309,6 @@ Prefix remapped to `C-a`. Pane navigation and splitting use `Alt` (`M`) directly
 ### Other Bindings
 | Key | Action |
 |---|---|
-| `\|` | Split pane horizontally (with prefix) |
-| `-` | Split pane vertically (with prefix) |
 | `prefix + r` | Reload `~/.tmux.conf` |
 
 ### Inactive pane dimming
