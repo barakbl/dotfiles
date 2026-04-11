@@ -193,6 +193,29 @@ music_svc='Music'   # or 'Spotify'
 - **fastfetch** — system info displayed on shell startup
 - **starship** — shell prompt
 
+## Starship
+
+Shell prompt powered by [Starship](https://starship.rs/).
+
+| Setting | Value |
+|---|---|
+| Newline between prompts | yes |
+| Success symbol | `>` (bold green) |
+| Package module | disabled |
+| Lua module | disabled (avoids false trigger from `~/init.lua` nvim symlink) |
+
+### Git status
+
+Minimal — only shows what matters:
+
+| Symbol | Meaning |
+|---|---|
+| `~` | Modified files |
+| `⇡` | Ahead of remote |
+| `⇣` | Behind remote |
+| `⇕` | Diverged |
+| *(nothing)* | Clean |
+
 ## Scripts
 
 Utility scripts in `scripts/` (not stow packages):
