@@ -12,6 +12,10 @@ dotfiles/
 │   └── .config/
 │       └── ghostty/
 │           └── config
+├── kitty/
+│   └── .config/
+│       └── kitty/
+│           └── kitty.conf
 ├── nvim/
 │   └── .config/
 │       └── nvim/
@@ -61,7 +65,7 @@ cd ~/dotfiles
 Symlink all packages at once:
 
 ```bash
-stow ghostty nvim starship tmux zellij zsh
+stow ghostty kitty nvim starship tmux zellij zsh
 ```
 
 Or stow a single package:
@@ -107,6 +111,7 @@ stow -n -v starship
 | Package    | Contents                              |
 |------------|---------------------------------------|
 | `ghostty`  | Ghostty terminal config (Catppuccin)  |
+| `kitty`    | Kitty terminal config                 |
 | `nvim`     | Neovim config (LazyVim + Catppuccin)  |
 | `starship` | Starship shell prompt config          |
 | `tmux`     | tmux configuration                    |
@@ -154,6 +159,7 @@ Defined in `zsh/.zshrc`:
 | `gc` | `git commit --all --message` |
 | `glyphs` | Pick a Nerd Font glyph with `fzf` and copy it to clipboard |
 | `tmux2html` | Capture current tmux pane with colors as HTML and copy to clipboard |
+| `y [args]` | Yazi file manager wrapper — `cd`s to the directory yazi exits into |
 | `coffee [time]` | Countdown timer with progress bar (e.g. `coffee 10m`, `coffee 30s`, default `5m`) |
 | `weather [location]` | Show current weather (e.g. `weather London`, default: Tel Aviv) |
 | `mute` | Mute system volume (macOS only) |
@@ -184,7 +190,7 @@ music_svc='Music'   # or 'Spotify'
 
 - **zoxide** — smarter `cd` (loaded via `eval "$(zoxide init zsh)"`)
 - **fzf** — fuzzy finder for files and history (`Ctrl-R`, `**` completion trigger)
-- **nerdfetch** — system info displayed on shell startup
+- **fastfetch** — system info displayed on shell startup
 - **starship** — shell prompt
 
 ## Scripts

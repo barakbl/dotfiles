@@ -118,6 +118,14 @@ LazyVim-based config with Python LSP (pyright + ruff).
 
 ---
 
+## Custom Keymaps
+
+| Key | Action |
+|-----|--------|
+| `<leader>rp` | Run current Python file in a terminal split |
+
+---
+
 ## Useful Commands
 
 ```

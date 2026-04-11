@@ -120,6 +120,17 @@ coffee() {
   printf "\r  ☕ [████████████████████] Done! %-10s\n" ""
 }
 
+# ─────────────────────────────────────────────
+#  yazi
+# ─────────────────────────────────────────────
+
+y() {
+  local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
+  command yazi "$@" --cwd-file="$tmp"
+  IFS= read -r -d '' cwd < "$tmp"
+  [ "$cwd" != "$PWD" ] && [ -d "$cwd" ] && builtin cd -- "$cwd"
+  rm -f -- "$tmp"
+}
 
 # ─────────────────────────────────────────────
 #  zmv Utilities  (bulk rename helpers)
@@ -172,7 +183,7 @@ fi
 #  Greeting
 # ─────────────────────────────────────────────
 
-nerdfetch
+fastfetch
 
 # bbsnip tab completion
 source "/Users/barak/.config/bbsnip/bbsnip.plugin.zsh"
