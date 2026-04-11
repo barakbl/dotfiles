@@ -1,56 +1,32 @@
- ╭─────────────────────────────────────────────────────╮
- │                  tmux cheatsheet                    │
- │                  prefix: C-a                        │
- ╰─────────────────────────────────────────────────────╯
+ ╭─────────────────────────────────────────────────────────────────────────────╮
+ │                             tmux cheatsheet                                 │
+ │                             prefix: C-a                                     │
+ ╰─────────────────────────────────────────────────────────────────────────────╯
 
- PANE NAVIGATION          (no prefix)
- ─────────────────────────────────────
-  M-h / M-Left     move left
-  M-l / M-Right    move right
-  M-k / M-Up       move up
-  M-m / M-Down     move down
+ PANE NAVIGATION    (no prefix)          PANE SPLITTING      (no prefix)
+ ────────────────────────────────────    ────────────────────────────────────
+  M-h / M-Left    move left               M-r             split horizontal
+  M-l / M-Right   move right              M-d             split vertical
+  M-k / M-Up      move up
+  M-m / M-Down    move down              PANE CLOSE          (no prefix)
+                                         ────────────────────────────────────
+ PANE RESIZE       (prefix = C-a)         M-q             kill pane
+ ────────────────────────────────────
+  prefix H        resize left            COPY MODE           (prefix [ to enter)
+  prefix J        resize down            ────────────────────────────────────
+  prefix K        resize up               v               begin selection (vi)
+  prefix L        resize right            y               copy selection
+                                          q / Esc         exit copy mode
 
- PANE SPLITTING           (no prefix)
- ─────────────────────────────────────
-  M-r              split horizontal
-  M-d              split vertical
+ WINDOWS / TABS    (no prefix)           GENERAL             (prefix = C-a)
+ ────────────────────────────────────    ────────────────────────────────────
+  M-t             new window              prefix r        reload config
+  M-,             rename window           prefix ?        this cheatsheet
+  M-1 … M-9      select by number        prefix g        lazygit popup
 
- PANE RESIZE              (prefix = C-a)
- ─────────────────────────────────────
-  prefix H         resize left
-  prefix J         resize down
-  prefix K         resize up
-  prefix L         resize right
+ SHELL ALIASES                           MOUSE
+ ────────────────────────────────────    ────────────────────────────────────
+  t [name]        attach/create session   enabled         click to focus pane
+  st              reload tmux config                      drag to resize panes
 
- PANE CLOSE               (no prefix)
- ─────────────────────────────────────
-  M-q              kill pane
-
- WINDOWS / TABS           (no prefix)
- ─────────────────────────────────────
-  M-t              new window
-  M-,              rename window
-  M-1 … M-9       select window by number
-
- GENERAL                  (prefix = C-a)
- ─────────────────────────────────────
-  prefix r         reload config
-  prefix ?         this cheatsheet
-
- SHELL ALIASES
- ─────────────────────────────────────
-  t [name]         attach/create session (default: main)
-  st               reload tmux config
-
- COPY MODE                (prefix [ to enter)
- ─────────────────────────────────────
-  v                begin selection  (vi mode)
-  y                copy selection
-  q / Esc          exit copy mode
-
- MOUSE
- ─────────────────────────────────────
-  enabled          click to focus pane/window
-                   drag to resize panes
-
-                         press q to close
+                                              press q to close
