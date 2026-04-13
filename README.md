@@ -353,8 +353,11 @@ Managed by [TPM (Tmux Plugin Manager)](https://github.com/tmux-plugins/tpm), ins
 | Plugin | Description |
 |---|---|
 | `sainnhe/tmux-fzf` | Fuzzy-find tmux sessions, windows, panes, and more |
+| `alexwforsythe/tmux-which-key` | Interactive popup menu showing available keybindings |
 
 **tmux-fzf** launch key: `prefix + z`. Use it to fuzzy-search and switch sessions/windows/panes interactively.
+
+**tmux-which-key** launch key: `prefix + Space`. Displays a popup menu of available actions and shortcuts.
 
 To install plugins after cloning: press `prefix + I` inside tmux.
 
