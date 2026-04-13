@@ -341,6 +341,8 @@ Theme: [Catppuccin Mocha](https://github.com/catppuccin/tmux) — installed as a
 | Key | Action |
 |---|---|
 | `prefix + r` | Reload `~/.tmux.conf` |
+| `prefix + ?` | Open cheatsheet popup |
+| `prefix + g` | Open lazygit popup |
 
 ### Inactive pane dimming
 

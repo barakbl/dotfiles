@@ -23,6 +23,8 @@
   M-t             new window              prefix r        reload config
   M-,             rename window           prefix ?        this cheatsheet
   M-1 … M-9      select by number        prefix g        lazygit popup
+                                          prefix z        tmux-fzf launcher
+                                          prefix Space    which-key menu
 
  SHELL ALIASES                           MOUSE
  ────────────────────────────────────    ────────────────────────────────────
