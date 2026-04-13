@@ -61,6 +61,7 @@ alias lt='lsd --tree'
 alias top='btop'
 alias c='clear'
 alias h='history'
+alias e='exit'
 
 alias ze='zellij attach main'
 alias nvimf='nvim $(fzf)'

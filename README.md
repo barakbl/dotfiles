@@ -32,8 +32,9 @@ dotfiles/
 │   └── .config/
 │       └── tmux/
 │           └── plugins/
-│               └── catppuccin/
-│                   └── tmux/  ← git submodule
+│               ├── catppuccin/
+│               │   └── tmux/  ← git submodule
+│               └── tpm/  ← Tmux Plugin Manager
 ├── zellij/
 │   └── .config/
 │       └── zellij/
@@ -120,7 +121,7 @@ stow -n -v starship
 | `kitty`    | Kitty terminal config                 |
 | `nvim`     | Neovim config (LazyVim + Catppuccin)  |
 | `starship` | Starship shell prompt config          |
-| `tmux`     | tmux config + Catppuccin plugin (submodule) |
+| `tmux`     | tmux config + Catppuccin plugin (submodule) + TPM |
 | `zellij`   | Zellij terminal multiplexer config    |
 | `zsh`      | Zsh configuration, aliases & plugins  |
 
@@ -150,6 +151,7 @@ Defined in `zsh/.zshrc`:
 | `top` | `btop` |
 | `c` | `clear` |
 | `h` | `history` |
+| `e` | `exit` |
 | `n`, `vi` | `nvim` |
 | `nvimf` | Open file picker with `fzf` in `nvim` |
 | `fp [dir]` | Fuzzy-find a file in `dir` (default: `.`) and preview with `bat` |
@@ -343,6 +345,18 @@ Theme: [Catppuccin Mocha](https://github.com/catppuccin/tmux) — installed as a
 ### Inactive pane dimming
 
 Inactive panes use a slightly darker background (`colour236`) while the active pane uses `colour235`, giving a subtle visual focus indicator.
+
+### Plugins
+
+Managed by [TPM (Tmux Plugin Manager)](https://github.com/tmux-plugins/tpm), installed at `~/.config/tmux/plugins/tpm/`.
+
+| Plugin | Description |
+|---|---|
+| `sainnhe/tmux-fzf` | Fuzzy-find tmux sessions, windows, panes, and more |
+
+**tmux-fzf** launch key: `prefix + z`. Use it to fuzzy-search and switch sessions/windows/panes interactively.
+
+To install plugins after cloning: press `prefix + I` inside tmux.
 
 ### Aliases
 | Alias | Action |
