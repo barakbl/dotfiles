@@ -27,6 +27,7 @@
                                           prefix Space    which-key menu
                                           prefix C-s      save session
                                           prefix C-r      restore session
+                                          prefix Tab      extrakto (grab text)
 
  SHELL ALIASES                           MOUSE
  ────────────────────────────────────    ────────────────────────────────────
