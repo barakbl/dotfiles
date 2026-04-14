@@ -5,9 +5,9 @@ theme = Catppuccin Mocha
 
 # === Background Settings ===
 # Number: 0.0-1.0
-background-opacity = 1.0
+background-opacity = 0.85
 # Boolean: true/false
-background-blur = false
+background-blur = true
 # Number: 0.0-1.0
 unfocused-split-opacity = 1.0
 
