@@ -155,6 +155,8 @@ autoload -U add-zsh-hook
 load-venv() {
   if [[ -d "venv" ]]; then
     [[ "$VIRTUAL_ENV" != "$PWD/venv" ]] && source venv/bin/activate && echo "🐍 Activated venv"
+  elif [[ -d ".venv" ]]; then
+    [[ "$VIRTUAL_ENV" != "$PWD/.venv" ]] && source .venv/bin/activate && echo "🐍 Activated .venv"
   elif [[ -n "$VIRTUAL_ENV" ]]; then
     deactivate && echo "🔒 Deactivated venv"
   fi

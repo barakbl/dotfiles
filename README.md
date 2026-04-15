@@ -179,7 +179,7 @@ Defined in `zsh/.zshrc`:
 | `zmvlower_run` | Rename files to lowercase (recursive) |
 | `zmvnospaces` | Dry-run rename files replacing spaces with `-` |
 | `zmvnospaces_run` | Rename files replacing spaces with `-` |
-| `load-venv` | Auto-activate/deactivate Python venv on `cd` |
+| `load-venv` | Auto-activate/deactivate Python venv on `cd` (`venv/` or `.venv/`) |
 
 ### music
 
