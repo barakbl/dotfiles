@@ -7,9 +7,7 @@ add_newline = true
 
 continuation_prompt = '[>>](bold green)'
 
-#right_format = """
-#$git_branch\
-#"""
+format = "$directory$custom$git_branch$git_status$cmd_duration$line_break$character"
 
 # Replace the '❯' symbol in the prompt with '➜'
 [character] # The name of the module we are configuring is 'character'
@@ -21,6 +19,12 @@ disabled = true
 
 [lua]
 disabled = true
+
+[custom.extend]
+command = "cat ~/.cache/starship_extend 2>/dev/null"
+when = "true"
+format = "[$output]($style) "
+style = "bold cyan"
 
 [git_status]
 modified = "~"

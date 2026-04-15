@@ -175,6 +175,15 @@ fi
 
 
 # ─────────────────────────────────────────────
+#  Starship extend (background cache refresh)
+# ─────────────────────────────────────────────
+
+_starship_extend_precmd() {
+  [[ -f ~/.config/starship/extend.zsh ]] && zsh ~/.config/starship/extend.zsh &>/dev/null &!
+}
+add-zsh-hook precmd _starship_extend_precmd
+
+# ─────────────────────────────────────────────
 #  Local Overrides
 # ─────────────────────────────────────────────
 
