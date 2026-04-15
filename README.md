@@ -25,7 +25,9 @@ dotfiles/
 │               └── plugins/
 ├── starship/
 │   └── .config/
-│       └── starship.toml
+│       ├── starship.toml
+│       └── starship/
+│           └── extend.zsh          ← hook entry point (sources extend.local.zsh)
 ├── tmux/
 │   ├── .tmux.conf
 │   ├── .tmux-cheatsheet
@@ -212,6 +214,29 @@ Shell prompt powered by [Starship](https://starship.rs/).
 | Success symbol | `>` (bold green) |
 | Package module | disabled |
 | Lua module | disabled (avoids false trigger from `~/init.lua` nvim symlink) |
+
+### Custom extend module
+
+The `[custom.extend]` module displays content from `~/.cache/starship_extend` — a plain text file written by a background hook, so the prompt is never blocked by slow commands (network calls, etc.).
+
+**How it works:**
+
+1. On every prompt, a `precmd` hook fires `~/.config/starship/extend.zsh` in the background (`&!`).
+2. `extend.zsh` sources `~/.config/starship/extend.local.zsh` if it exists.
+3. `extend.local.zsh` runs whatever logic you need and writes its output to `~/.cache/starship_extend`.
+4. Starship reads the cache file instantly — always one prompt cycle behind, never blocking.
+
+**To add machine-specific content:**
+
+Create `~/.config/starship/extend.local.zsh` (gitignored via `*.local.zsh`):
+
+```zsh
+#!/usr/bin/env zsh
+# Write whatever you want to display in the prompt
+echo "your content here" >| "${HOME}/.cache/starship_extend"
+```
+
+The file is never committed — each machine has its own local version. On machines without the file, the module simply shows nothing.
 
 ### Git status
 
