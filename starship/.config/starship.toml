@@ -23,8 +23,7 @@ disabled = true
 [custom.extend]
 command = "cat ~/.cache/starship_extend 2>/dev/null"
 when = "true"
-format = "[$output]($style) "
-style = "bold cyan"
+format = "$output "
 
 [git_status]
 modified = "~"
