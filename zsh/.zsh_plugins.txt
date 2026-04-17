@@ -8,4 +8,4 @@ mattmc3/zephyr path:plugins/history
 
 zsh-users/zsh-autosuggestions
 zsh-users/zsh-history-substring-search
-
+olets/zsh-abbr

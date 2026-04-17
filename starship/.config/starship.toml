@@ -7,7 +7,7 @@ add_newline = true
 
 continuation_prompt = '[>>](bold green)'
 
-format = "$directory$custom$git_branch$git_status$cmd_duration$line_break$character"
+format = "$directory$python$custom$git_branch$git_status$cmd_duration$line_break$character"
 
 # Replace the '❯' symbol in the prompt with '➜'
 [character] # The name of the module we are configuring is 'character'
@@ -26,12 +26,14 @@ when = "true"
 format = "$output "
 
 [git_status]
-modified = "~"
+# Hide all file-state indicators; keep only ahead/behind/diverged.
+modified = ""
 untracked = ""
 staged = ""
 deleted = ""
+stashed = ""
 ahead = "⇡"
 behind = "⇣"
 diverged = "⇕"
-format = '([$all_status$ahead_behind]($style))'
+format = '([$ahead_behind]($style))'
 style = "yellow"

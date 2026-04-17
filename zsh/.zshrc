@@ -8,7 +8,7 @@ music_svc='Music'  # swap to 'Spotify' if needed
 export PATH="$HOME/.local/bin:$PATH"
 export XDG_CONFIG_HOME="$HOME/.config"
 export EDITOR='nvim'
-
+ABBR_SET_EXPANSION_CURSOR=1
 # ─────────────────────────────────────────────
 #  Prompt & Shell Plugins
 # ─────────────────────────────────────────────
@@ -27,9 +27,18 @@ source <(fzf --zsh)
 #  Key Bindings
 # ─────────────────────────────────────────────
 
-bindkey '^[[A' history-substring-search-up
-bindkey '^[[B' history-substring-search-down
-bindkey '^R'   fzf-history-widget
+# Force emacs keymap. zsh auto-picks vi mode when $EDITOR contains "vi"
+# (e.g. nvim), which makes bare ESC drop into vi-command mode and feel
+# like the shell is frozen.
+bindkey -e
+
+bindkey '^[[A' history-substring-search-up   # Up   → history substring search
+bindkey '^[[B' history-substring-search-down # Down → history substring search
+bindkey '^R'   fzf-history-widget            # Ctrl-R → fzf history
+
+# Remove spell-word bindings. Alt-s / Alt-S / Alt-$ default to `spell-word`,
+# which pops a blocking "correct? [nyae]" prompt that looks like a freeze.
+bindkey -r '^[s' '^[S' '^[$'
 
 # ─────────────────────────────────────────────
 #  zsh history
@@ -82,6 +91,7 @@ alias st='tmux source-file ~/.tmux.conf; echo "tmux reloaded"'
 fp() { fd . "${1:-.}" --type f | fzf --preview 'bat --style=numbers --color=always --line-range :500 {}'; }
 
 sql() { sqlite3 "$(ls -t "${1:-.}"/*.db 2>/dev/null | head -1)"; }
+
 
 # created using scripts/print_glyphs.py script
 alias glyphs="cat ~/.glyphs.txt | fzf --exact | grep -o '^.' | pbcopy"
@@ -195,11 +205,6 @@ add-zsh-hook precmd _starship_extend_precmd
 # ─────────────────────────────────────────────
 #  Greeting
 # ─────────────────────────────────────────────
-
-fastfetch
-
-# bbsnip tab completion
-source "/Users/barak/.config/bbsnip/bbsnip.plugin.zsh"
-
-# OpenFang
-export PATH=/Users/barak/.openfang/bin:$PATH
+stty -ixon
+unsetopt flow_control
+nerdfetch
