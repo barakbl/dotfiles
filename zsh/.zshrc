@@ -9,6 +9,14 @@ export PATH="$HOME/.local/bin:$PATH"
 export XDG_CONFIG_HOME="$HOME/.config"
 export EDITOR='nvim'
 ABBR_SET_EXPANSION_CURSOR=1
+
+# Force emacs keymap before loading plugins. zsh auto-picks vi mode when
+# $EDITOR contains "vi" (e.g. nvim), which makes bare ESC drop into
+# vi-command mode and feel like the shell is frozen. Must come before
+# antidote load so plugins like zsh-abbr bind widgets into the emacs
+# keymap we actually use.
+bindkey -e
+
 # ─────────────────────────────────────────────
 #  Prompt & Shell Plugins
 # ─────────────────────────────────────────────
@@ -26,11 +34,6 @@ source <(fzf --zsh)
 # ─────────────────────────────────────────────
 #  Key Bindings
 # ─────────────────────────────────────────────
-
-# Force emacs keymap. zsh auto-picks vi mode when $EDITOR contains "vi"
-# (e.g. nvim), which makes bare ESC drop into vi-command mode and feel
-# like the shell is frozen.
-bindkey -e
 
 bindkey '^[[A' history-substring-search-up   # Up   → history substring search
 bindkey '^[[B' history-substring-search-down # Down → history substring search

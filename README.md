@@ -138,6 +138,7 @@ Plugins are managed with [antidote](https://getantidote.github.io/). Edit `zsh/.
 - `zephyr` — completion, macOS, and history plugin modules
 - `zsh-autosuggestions` — fish-like suggestions as you type
 - `zsh-history-substring-search` — up/down arrow history search
+- `zsh-abbr` — abbreviation expansion (fish-style) with cursor placement via `ABBR_SET_EXPANSION_CURSOR=1`
 
 ### Local config
 
@@ -201,7 +202,7 @@ music_svc='Music'   # or 'Spotify'
 
 - **zoxide** — smarter `cd` (loaded via `eval "$(zoxide init zsh)"`)
 - **fzf** — fuzzy finder for files and history (`Ctrl-R`, `**` completion trigger)
-- **fastfetch** — system info displayed on shell startup
+- **nerdfetch** — system info displayed on shell startup
 - **starship** — shell prompt
 
 ## Starship
@@ -244,15 +245,20 @@ Minimal — only shows what matters:
 
 | Symbol | Meaning |
 |---|---|
-| `~` | Modified files |
 | `⇡` | Ahead of remote |
 | `⇣` | Behind remote |
 | `⇕` | Diverged |
-| *(nothing)* | Clean |
+| *(nothing)* | In sync |
+
+File-state indicators (modified, staged, stashed, untracked, deleted) are disabled — the status line stays clean unless your branch has diverged from the remote.
+
+### Python
+
+The `$python` module shows the active interpreter/virtualenv (e.g. `via 🐍 v3.12 (venv)`). Combined with the `load-venv` zsh hook, entering a project with `venv/` or `.venv/` auto-activates the venv and the prompt reflects it.
 
 ## Ghostty
 
-Ghostty terminal with Catppuccin Mocha theme.
+Ghostty terminal with Catppuccin Mocha theme. The macOS title bar is hidden (`macos-titlebar-style = hidden`) for a cleaner, full-bleed terminal window.
 
 ### Keybindings
 
