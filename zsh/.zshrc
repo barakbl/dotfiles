@@ -211,3 +211,12 @@ add-zsh-hook precmd _starship_extend_precmd
 stty -ixon
 unsetopt flow_control
 nerdfetch
+
+# opencode
+export PATH=/Users/barak/.opencode/bin:$PATH
+
+# Added by booki installer
+export PATH="/Users/barak/.local/bin:$PATH"
+
+# Added by booki installer
+source /Users/barak/.local/share/booki/shells/booki.zsh

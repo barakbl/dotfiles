@@ -13,7 +13,7 @@ unfocused-split-opacity = 1.0
 
 macos-non-native-fullscreen = false
 # Values: native, transparent, tabs, hidden
-macos-titlebar-style = hidden
+# macos-titlebar-style = hidden
 # Values: visible, hidden
 macos-titlebar-proxy-icon = visible
 # Values: true, false, left, right
